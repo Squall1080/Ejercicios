@@ -73,9 +73,8 @@ public class Main {
 			    
 			    //metodo para remover usuarios
 			    public static List<Usuario> remueveUsuarios(List<Usuario> sumaDeListas){
-			    	Usuario nuevaLista;
 			    	for(int i=5;i < sumaDeListas.size();i++){
-			    		nuevaLista = sumaDeListas.remove(i);
+			    		sumaDeListas.remove(i);
 			    	}
 			    	return sumaDeListas;
 			    }
