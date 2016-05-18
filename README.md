@@ -1,68 +1,48 @@
-# Ejercicios
-Ejercicios de programación.
-
-
 import java.util.ArrayList;
-
-public class Usuario {
-	
-	String name;
-	String email;
-	String userName;
-	String address;
-	int age;
-	
-	Usuario() {
-		
-	}
-	
-	Usuario(String name, String email) {
-		name = "Fernando";
-		email = "squall1080@gmail.com";
-	}
+import java.util.List;
+public class Main {
 
 	public static void main(String[] args) {
-		Usuario fer = new Usuario();
 		
-		fer.name = "Fernando";
-		fer.email = "squall1080@gmail.com";
-		fer.address = "fake st 123, Mexico";
-		fer.userName = "Squall";
-		fer.age = 31;
-		
-		System.out.println("El nombre del usuario es: " + fer.name);
-		System.out.println("Su edad es: " + fer.age);
-		System.out.println("Su email es: " + fer.email);
-		System.out.println("Su dirección es: " + fer.address);
-		System.out.println("Su nombre de usuario es: " + fer.userName);
-		System.out.println("///////////////////////////////////////////");
-		
-		ArrayList list = new ArrayList();
-		
-		list.add(fer.name);
-		list.add(fer.email);
-		list.add(fer.address);
-		list.add(fer.userName);
-		list.add(fer.age);
-		System.out.println(list);
-		System.out.println("///////////////////////////////////////////");
-		
-		System.out.println(Swap(fer.name));
-		System.out.println(Swap(fer.email));
-		System.out.println(Swap(fer.address));
-		System.out.println(Swap(fer.userName));
-		System.out.println("13");
+		Usuario usuario1 = new Usuario("Fernando","squall1080@gmail.com","squall1080","fake st 123", "31");
+		Usuario usuario2 = new Usuario("Leon");
+		Usuario usuario3 = new Usuario("Erick", "erickzamora@hotmail.com", "ezamora", "fake st 456", "28");
+		Usuario usuario4 = new Usuario("Regina", "regina@gmail.com", "Regina01", "fake st 789", "24");
+		Usuario usuario5 = new Usuario("Alejandro", "ilmagno@hotmail.com","amalanco", "Fake st 001", "35");
 		
 
-	}
-	
-	public static String Swap(String textoARevertir) {
+			//lista de usuarios
+			List<Usuario> usuarios = new ArrayList<Usuario>();
+			usuarios.add(usuario1);
+			usuarios.add(usuario2);
+			usuarios.add(usuario3);
+			usuarios.add(usuario4);
+			usuarios.add(usuario5);
+			System.out.println(usuarios);
+			
+			//invertir nombre usuario
+			for(int i = 0; i<usuarios.size();i++){
+				System.out.println(nombreInvertido(usuarios.get(i).nombreUsuario));
+			}
+			
+			//imprime valores usuario
+			System.out.println(valoresUsuario());
+			
+
+		}
 		
-		String result="";
-	
-		for (int i= textoARevertir.length()-1; i>=0; i--) {
-        	result = result + textoARevertir.charAt(i);
-    	}
-    	return result;
+		public static String nombreInvertido(String textoARevertir) {
+
+		    String result="";
+		    for (int i= textoARevertir.length()-1; i>=0; i--) {
+		        result = result + textoARevertir.charAt(i);
+		    }
+		    return result;
+		}
+		
+		public static String valoresUsuario(){
+			Usuario fer = new Usuario();
+			String valores = fer.nombreUsuario + " " + fer.emailUsuario + " " + fer.direccionUsuario + " " + fer.userName + " " + fer.edadUsuario;
+			return valores;
+		}
 	}
-}
